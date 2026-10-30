@@ -1,34 +1,19 @@
-# GoldSense — Thai Gold 96.5%
+# GoldSense — Thai Gold Collection Dashboard
 
-ระบบเว็บสำหรับวิเคราะห์ราคาทองคำไทย 96.5% สำหรับงานเรียน โดยเชื่อมข้อมูลราคาล่าสุด เก็บข้อมูลด้วย SQLite แสดงกราฟย้อนหลัง และมี Linear Regression baseline สำหรับการพยากรณ์
+ระบบที่รันได้จริงด้วย Node.js 24 + SQLite ดึงข้อมูลจาก Thai Gold API และเก็บ publication โดยไม่เพิ่มระเบียนซ้ำจากการ refresh
 
-## Features
-- ราคาทองแท่ง 96.5% รับซื้อ / ขายออก
-- ราคาทองรูปพรรณ
-- Auto refresh ทุก 60 วินาที
-- SQLite database
-- Historical chart 30 วัน / 3 เดือน / 6 เดือน / 1 ปี
-- Linear Regression baseline
-- MAE / RMSE
-- Responsive dashboard
-
-## Tech Stack
-Node.js, Express.js, SQLite (better-sqlite3), HTML, CSS, JavaScript, Chart.js
-
-## Data Source
-Thai Gold API ซึ่งดึงข้อมูลราคาทองจาก goldtraders.or.th / สมาคมค้าทองคำ
-
-## Run
-```bash
-npm install
+```sh
 npm start
 ```
-เปิด `http://localhost:3000`
 
-> หมายเหตุ: ข้อมูลย้อนหลัง 1 ปีจะสะสมตั้งแต่เริ่มระบบ หากต้องการชุดข้อมูลย้อนหลังเต็มช่วง ต้องนำข้อมูล historical dataset มาเติมเพิ่มเติมก่อนประเมินโมเดล
+เปิด http://localhost:3000 แล้วเลือกอัปเดต ต้องเข้าถึง endpoint จริงได้ กรณี upstream ขัดข้องจะแสดงข้อมูลเก่าหรือยังไม่มีข้อมูล ไม่เติมค่าจำลอง
 
-## เอกสารวิเคราะห์ระบบ
+## หลักฐานรอบนี้
 
-[Requirement และเอกสารออกแบบระบบ](docs/analysis/README.md) · [HTML ฉบับอ่าน](docs/analysis/analysis.html) · [SVG และ Mermaid ที่แก้ไขได้](docs/analysis/diagrams/)
+- [ภาพ Dashboard จริง](evidence/dashboard-actual.jpg)
+- [HTTP + SQL verification](evidence/live-verification.txt)
+- [Requirement, Data Flow, Data Model และข้อจำกัด](docs/VERIFIED_SCOPE.md)
 
-ชุดเอกสารจัดทำใหม่จาก source baseline วันที่ 30 ตุลาคม 2026 มี Functional Requirements, Business Rules, Context Diagram, DFD, Workflow, Data Model, Data Dictionary และ UAT traceability แยกสถานะที่พบในโค้ดออกจากสิ่งที่ผ่านการทดสอบและสิ่งที่ยังต้องยืนยันกับผู้ใช้ ไม่ใช่บันทึกสัมภาษณ์หรือเอกสารรับรองย้อนหลัง
+มีข้อมูลจริง 1 publication ในรอบนี้ ยังไม่มีประวัติที่เพียงพอหรือ chronological holdout จึงไม่แสดง forecast, MAE หรือ RMSE ไม่ถือเป็นระบบพยากรณ์ที่ผ่านการประเมิน
+
+`DB_FILE` เปลี่ยนที่จัดเก็บได้ ค่าเริ่มต้น `data/gold.db`; ใช้ตาราง `observations` ใหม่ ข้อมูล legacy ไม่ถูกลบอัตโนมัติ ไฟล์ ZIP และเอกสารวิเคราะห์เดิมเป็น historical reference ไม่ใช่ baseline runtime ปัจจุบัน

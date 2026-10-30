@@ -4,11 +4,10 @@
   "private": true,
   "scripts": {
     "start": "node server.js",
-    "dev": "node --watch server.js"
+    "dev": "node server.js"
   },
-  "dependencies": {
-    "better-sqlite3": "^11.8.1",
-    "dotenv": "^16.4.7",
-    "express": "^4.21.2"
+  "dependencies": {},
+  "engines": {
+    "node": ">=24"
   }
 }

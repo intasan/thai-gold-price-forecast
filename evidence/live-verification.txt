@@ -1,0 +1,14 @@
+Actual HTTP + SQLite verification; no generated prices
+2026-10-30T17:49:35.673Z
+/api/health HTTP 200
+{"ok":true,"source":"https://api.chnwt.dev/thai-gold-api/latest","last_error":null}
+/api/latest HTTP 200
+{"ok":true,"live":{"source":"https://api.chnwt.dev/thai-gold-api/latest","published_date":"30/10/2569","published_time":"เวลา 15:49 น. (ครั้งที่ 27)","retrieved_at":"2026-10-30T17:49:43.911Z","goldbar_buy":63550,"goldbar_sell":63750,"ornament_sell":64550,"update_date":"30/10/2569","update_time":"เวลา 15:49 น. (ครั้งที่ 27)"},"last":{"source":"https://api.chnwt.dev/thai-gold-api/latest","published_date":"30/10/2569","published_time":"เวลา 15:49 น. (ครั้งที่ 27)","retrieved_at":"2026-10-30T17:49:43.911Z","goldbar_buy":63550,"goldbar_sell":63750,"ornament_sell":64550,"update_date":"30/10/2569","update_time":"เวลา 15:49 น. (ครั้งที่ 27)"},"error":null}
+/api/history HTTP 200
+{"source":"https://api.chnwt.dev/thai-gold-api/latest","days":365,"rows":[{"source":"https://api.chnwt.dev/thai-gold-api/latest","published_date":"30/10/2569","published_time":"เวลา 15:49 น. (ครั้งที่ 27)","retrieved_at":"2026-10-30T17:49:43.911Z","goldbar_buy":63550,"goldbar_sell":63750,"ornament_sell":64550,"update_date":"30/10/2569","update_time":"เวลา 15:49 น. (ครั้งที่ 27)","observed_at":"2026-10-30T17:49:43.911Z"}]}
+/api/stats HTTP 200
+{"count":1,"mae":null,"rmse":null,"forecast":null,"evaluation_status":"not_evaluated","reason":"Prospective collection only. No verified historical series, chronological holdout or trained forecast is available."}
+/api/history?days=abc HTTP 400
+{"error":"days must be an integer between 1 and 3650"}
+SQL COUNT {"n":1}
+SQL schema [{"sql":"CREATE TABLE observations(source TEXT NOT NULL, published_date TEXT NOT NULL,published_time TEXT NOT NULL, retrieved_at TEXT NOT NULL,goldbar_buy REAL NOT NULL,goldbar_sell REAL NOT NULL, ornament_sell REAL, PRIMARY KEY(source,published_date,published_time))"}]
