@@ -1,0 +1,17 @@
+flowchart TD
+  N0["Timer / latest request"]
+  N1["1.0 Collect"]
+  N2["Thai Gold API"]
+  N3["D1 gold_prices"]
+  N4["Dashboard"]
+  N5["2.0 Query / regression"]
+  N0 -->|"D01 trigger"| N1
+  N1 -->|"sync result หรือ null"| N0
+  N1 -->|"D02 HTTP latest request"| N2
+  N2 -->|"JSON หรือ HTTP error"| N1
+  N1 -->|"D03 INSERT snapshot"| N3
+  N3 -->|"persist result"| N1
+  N4 -->|"D04 latest/history/stats request"| N5
+  N5 -->|"ราคา history stats หรือ error"| N4
+  N5 -->|"D05 อ่าน latest และ non-null sell series"| N3
+  N3 -->|"rows ที่เรียง observed_at"| N5

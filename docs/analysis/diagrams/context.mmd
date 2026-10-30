@@ -1,0 +1,8 @@
+flowchart LR
+  U["ผู้ดูข้อมูล"]
+  S(["0 GoldSense Thai Gold Analytics"])
+  U -->|"คำขอและข้อมูลนำเข้า"| S
+  S -->|"ผลลัพธ์ สถานะ หรือข้อผิดพลาด"| U
+  A["Thai Gold API"]
+  S -->|"คำขอราคาล่าสุด"| A
+  A -->|"JSON หรือ HTTP error"| S

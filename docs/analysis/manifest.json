@@ -1,0 +1,15 @@
+{
+  "title": "GoldSense Thai Gold Analytics",
+  "repo": "thai-gold-price-forecast",
+  "slug": "gold-thai",
+  "head": "ba3ecf504e24fc2cd7a2983aa0bfca4c36527d7f",
+  "document_version": "1.0",
+  "date": "2026-10-30",
+  "requirements": 10,
+  "diagrams": [
+    "context",
+    "data-flow",
+    "workflow",
+    "data-model"
+  ]
+}

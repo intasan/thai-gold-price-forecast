@@ -1,0 +1,10 @@
+flowchart TD
+  N0["รับ trigger ตามรอบหรือคำขอ latest"]
+  N1["เรียก API และแปลง JSON"]
+  N2["บันทึก snapshot หรือใช้ last หากล้มเหลว"]
+  N3["อ่าน history และคำนวณ regression"]
+  N4["แสดงราคา เวลา และข้อจำกัด"]
+  N0 --> N1
+  N1 --> N2
+  N2 --> N3
+  N3 --> N4
