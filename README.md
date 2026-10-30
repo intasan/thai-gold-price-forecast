@@ -17,3 +17,8 @@ npm start
 มีข้อมูลจริง 1 publication ในรอบนี้ ยังไม่มีประวัติที่เพียงพอหรือ chronological holdout จึงไม่แสดง forecast, MAE หรือ RMSE ไม่ถือเป็นระบบพยากรณ์ที่ผ่านการประเมิน
 
 `DB_FILE` เปลี่ยนที่จัดเก็บได้ ค่าเริ่มต้น `data/gold.db`; ใช้ตาราง `observations` ใหม่ ข้อมูล legacy ไม่ถูกลบอัตโนมัติ ไฟล์ ZIP และเอกสารวิเคราะห์เดิมเป็น historical reference ไม่ใช่ baseline runtime ปัจจุบัน
+
+
+## ข้อจำกัดไฟล์ต้นฉบับ
+
+ไฟล์ GoldSense-ThaiGold-96.5-Final.zip ที่อยู่ใน Repository เปิดด้วย Python zipfile ไม่สำเร็จ: BadZipFile: File is not a zip file จึงไม่ใช้ archive นี้เป็นหลักฐาน source ที่กู้คืนหรือรันผ่าน ดู evidence/archive-check.txt

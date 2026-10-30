@@ -69,3 +69,8 @@ flowchart TD
 4. ประเมินความเพียงพอของประวัติข้อมูลก่อนเสนอโมเดลพยากรณ์
 
 สถานะทั้ง 4 ข้อ: ยังไม่ได้รับการตรวจรับจากผู้ใช้ ไม่ใส่คะแนนประเมินหรืออ้างว่าผ่าน UAT
+
+
+## ข้อจำกัดไฟล์ต้นฉบับ
+
+ไฟล์ GoldSense-ThaiGold-96.5-Final.zip ที่อยู่ใน Repository เปิดด้วย Python zipfile ไม่สำเร็จ: BadZipFile: File is not a zip file จึงไม่ใช้ archive นี้เป็นหลักฐาน source ที่กู้คืนหรือรันผ่าน ดู evidence/archive-check.txt

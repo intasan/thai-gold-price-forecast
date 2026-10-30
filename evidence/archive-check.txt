@@ -1,0 +1,4 @@
+GoldSense-ThaiGold-96.5-Final.zip
+bytes=6892
+zipfile validation: BadZipFile: File is not a zip file
+No archive content was restored or treated as executable evidence.
